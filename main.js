@@ -24,5 +24,5 @@ document.getElementById('combinationForm').addEventListener('submit', function (
   
   const resultado = calcularCombinacao(n, p);
   
-  document.getElementById('resultado').textContent = C(${n}, ${p}) = ${resultado};
+  document.getElementById('result').textContent = C(${n}, ${p}) = ${resultado};
 });
