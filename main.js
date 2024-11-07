@@ -1,59 +1,28 @@
-{
-  box-sizing: border-box;
+// Função para calcular o fatorial de um número
+function fatorial(num) {
+  if (num <= 1) return 1;
+  return num * fatorial(num - 1);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background-color: #f4f4f4;
+// Função para calcular combinações (nCr = n! / [r! * (n - r)!])
+function calcularCombinacao(n, p) {
+  if (p > n) return 0; // Caso p seja maior que n, a combinação é impossível
+  return fatorial(n) / (fatorial(p) * fatorial(n - p));
 }
 
-.container {
-  text-align: center;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-label {
-  display: block;
-  margin: 10px 0 5px;
-}
-
-input {
-  padding: 8px;
-  width: 100%;
-  margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-#result {
-  font-size: 18px;
-  margin-top: 20px;
-  color: #333;
-}
+// Manipulação do DOM para calcular e mostrar o resultado
+document.getElementById('combinationForm').addEventListener('submit', function (event) {
+  event.preventDefault();
+  
+  const n = parseInt(document.getElementById('n').value);
+  const p = parseInt(document.getElementById('p').value);
+  
+  if (isNaN(n) || isNaN(p) || n < 0 || p < 0) {
+    alert("Por favor, insira valores válidos para n e p.");
+    return;
+  }
+  
+  const resultado = calcularCombinacao(n, p);
+  
+  document.getElementById('result').textContent = C(${n}, ${p}) = ${resultado};
+});
