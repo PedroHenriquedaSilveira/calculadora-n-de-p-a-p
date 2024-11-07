@@ -22,7 +22,7 @@ document.getElementById('combinationForm').addEventListener('submit', function (
     return;
   }
   
-  const result = calcularCombinacao(n, p);
+  const resultado = calcularCombinacao(n, p);
   
-  document.getElementById('result').textContent = C(${n}, ${p}) = ${result};
+  document.getElementById('result').textContent = C($,{n}, $,{p}) = $;{resultado};
 });
